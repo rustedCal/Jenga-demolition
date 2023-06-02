@@ -31,19 +31,19 @@ public class GenPieces : MonoBehaviour
         {
             if (isRotated)
             {
-                GameObject peice1 = Instantiate(devPiece, new Vector3(0.0f, startY, 0.0f), Quaternion.identity);
-                GameObject peice2 = Instantiate(devPiece, new Vector3(xGap + 1, startY, 0.0f), Quaternion.identity);
-                GameObject peice3 = Instantiate(devPiece, new Vector3(-(xGap + 1), startY, 0.0f), Quaternion.identity);
-                peice1.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice1.transform.rotation.w);
+                GameObject peice1 = Instantiate(devPiece, new Vector3(0.0f, y, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+                GameObject peice2 = Instantiate(devPiece, new Vector3(xGap + 1, y, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+                GameObject peice3 = Instantiate(devPiece, new Vector3(-(xGap + 1), y, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
                 peice2.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice2.transform.rotation.w);
                 peice3.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice3.transform.rotation.w);
             }
             else
             {
-                GameObject peice1 = Instantiate(devPiece, new Vector3(0.0f, startY, 0.0f), Quaternion.identity);
-                GameObject peice2 = Instantiate(devPiece, new Vector3(0.0f, startY, xGap + 1), Quaternion.identity);
-                GameObject peice3 = Instantiate(devPiece, new Vector3(0.0f, startY, -(xGap + 1)), Quaternion.identity);
+                GameObject peice1 = Instantiate(devPiece, new Vector3(0.0f, y, 0.0f), Quaternion.identity);
+                GameObject peice2 = Instantiate(devPiece, new Vector3(0.0f, y, xGap + 1), Quaternion.identity);
+                GameObject peice3 = Instantiate(devPiece, new Vector3(0.0f, y, -(xGap + 1)), Quaternion.identity);
             }
+            isRotated = !isRotated;
             y += yHeight + yGap;
         }
     }
