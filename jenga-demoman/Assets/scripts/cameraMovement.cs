@@ -15,7 +15,7 @@ public class cameraMovement : MonoBehaviour
         Vector3 temp = gameObject.transform.position;//a temporary vector3 used to get transform inputs to set later
         float temp2 = gameObject.transform.rotation.eulerAngles.y;
         
-        if (Input.GetKey(up))
+        if (Input.GetKey(up))//for up / down movement
         {
             temp.y += speedY;
         }
@@ -23,17 +23,14 @@ public class cameraMovement : MonoBehaviour
         {
             temp.y -= speedY;
         }
-        if (Input.GetKey(rotL))
+        if (Input.GetKey(rotL))//for left / right rotation
         {
-            Debug.Log("rotL keycode detected");
             temp2 += rotSpeed;
         }else if (Input.GetKey(rotR))
         {
-            Debug.Log("rotR keycode detected");
             temp2 -= rotSpeed;
         }
-        Debug.Log(temp2);
         gameObject.transform.position = temp;//sets camera position
-        gameObject.transform.rotation = Quaternion.Euler(0, temp2, 0);
+        gameObject.transform.rotation = Quaternion.Euler(0, temp2, 0);//sets camera rotation
     }
 }

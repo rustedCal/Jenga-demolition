@@ -13,14 +13,7 @@ public class GenPieces : MonoBehaviour
 
     void Start()
     {
-        
         genPieces();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     public void genPieces()
     {
@@ -36,12 +29,18 @@ public class GenPieces : MonoBehaviour
                 GameObject peice3 = Instantiate(devPiece, new Vector3(-(xGap + 1), y, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
                 peice2.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice2.transform.rotation.w);
                 peice3.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice3.transform.rotation.w);
+                peice1.name += i;
+                peice2.name += i + 1;
+                peice3.name += i + 2;
             }
             else
             {
                 GameObject peice1 = Instantiate(devPiece, new Vector3(0.0f, y, 0.0f), Quaternion.identity);
                 GameObject peice2 = Instantiate(devPiece, new Vector3(0.0f, y, xGap + 1), Quaternion.identity);
                 GameObject peice3 = Instantiate(devPiece, new Vector3(0.0f, y, -(xGap + 1)), Quaternion.identity);
+                peice1.name += i;
+                peice2.name += i + 1;
+                peice3.name += i + 2;
             }
             isRotated = !isRotated;
             y += yHeight + yGap;
