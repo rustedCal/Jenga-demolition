@@ -12,9 +12,8 @@ public class MouseInteract : MonoBehaviour
         mousePos = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
 
-        if (Physics.Raycast(ray, out RaycastHit hitData, 1000, layer))
+        if (Physics.Raycast(ray, out RaycastHit hitData, 100000, layer))
         {
-            Debug.Log("hitting a block!!!");
             worldPos = hitData.point;
         }
 
