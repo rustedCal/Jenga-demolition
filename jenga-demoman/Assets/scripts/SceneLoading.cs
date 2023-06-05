@@ -31,4 +31,9 @@ public class SceneLoading : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
