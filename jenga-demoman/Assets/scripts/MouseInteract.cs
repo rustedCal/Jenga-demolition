@@ -31,8 +31,8 @@ public class MouseInteract : MonoBehaviour
             if(FB >= 0.49f && LR <= 1.6f && LR >= -1.6f)//checks for each side of the pieces, need to dissable the top grabbing
             {
                 Debug.Log("sphere on front");
-                if(moveNumb > 1 || moveNumb < -1)
-                    lastPiece.transform.position = lastPiece.transform.forward * moveNumb;
+
+                lastPiece.transform.position = lastPiece.transform.forward * moveNumb;
             }
             else if (FB <= 0.49f && LR <= 1.6f && LR >= -1.6f)
             {
