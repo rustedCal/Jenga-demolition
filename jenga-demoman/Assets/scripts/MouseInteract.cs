@@ -8,20 +8,31 @@ public class MouseInteract : MonoBehaviour
     public Vector3 worldPos;
     public LayerMask layer;
     GameObject lastPiece;
+    Vector3 InitMousePos;
     void Update()
     {
-        mousePos = Input.mousePosition;
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        mousePos = Input.mousePosition;//position of mouse on screen
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);//raycast of where the funnymouse cursor is
         if (Input.GetKey(KeyCode.Mouse0) && lastPiece != null)//if the mouse is down && lastpeice isnt null, move stored gameobject
         {
+            if (Input.GetKeyDown(KeyCode.Mouse0))//store initial position of mousepos
+            {
+                InitMousePos = mousePos;//initial mouse position, sub from mouse pos to get movement along face vector
+            }
+            //piece math stuff :)
             Vector3 temp = worldPos - lastPiece.transform.position;//position of last piece
             Vector3 temp2 = new Vector3(lastPiece.transform.forward.z, 0, lastPiece.transform.forward.x);//90 degrie rot of lastpeice
-            float FB = Vector3.Dot(temp, lastPiece.transform.forward);//forward / back
-            float LR = Vector3.Dot(temp, temp2);//left / rigth
-            Debug.Log(temp + ", " + lastPiece.transform.forward + ", " + FB + ", " + LR);
-            if(FB >= 0.49f && LR <= 1.6f && LR >= -1.6f)
+            float FB = Vector3.Dot(temp, lastPiece.transform.forward);  //forward / back
+            float LR = Vector3.Dot(temp, temp2);                        //left / rigth
+            //movement things
+            float moveNumb = (mousePos.x - InitMousePos.x) + (mousePos.y - InitMousePos.y);
+            //Debug.Log(temp + ", " + lastPiece.transform.forward + ", " + FB + ", " + LR);//debug line
+            Debug.Log(InitMousePos + ", " + mousePos + ", " + moveNumb);
+            if(FB >= 0.49f && LR <= 1.6f && LR >= -1.6f)//checks for each side of the pieces, need to dissable the top grabbing
             {
                 Debug.Log("sphere on front");
+
+                lastPiece.transform.position = lastPiece.transform.forward * moveNumb;
             }
             else if (FB <= 0.49f && LR <= 1.6f && LR >= -1.6f)
             {
