@@ -199,13 +199,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104683473}
+<<<<<<< HEAD
   m_LocalRotation: {x: -0.082827814, y: 0.90198004, z: -0.19996414, w: -0.37361214}
   m_LocalPosition: {x: 10, y: 10, z: 10}
+=======
+  m_LocalRotation: {x: 0, y: 0.9238796, z: -0, w: -0.38268325}
+  m_LocalPosition: {x: 10, y: 7, z: 10}
+>>>>>>> parent of 3d1130b (Merge branch 'main' of https://github.com/rustedCal/Jenga-demolition)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 523410454}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 25, y: 225, z: 0}
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: 225, z: 0}
+>>>>>>> parent of 3d1130b (Merge branch 'main' of https://github.com/rustedCal/Jenga-demolition)
 --- !u!1 &247325338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2018799441440170507, guid: 21b1f030e51013f45987e1be965aac29, type: 3}
@@ -229,6 +238,7 @@ MonoBehaviour:
   yHeight: 0.8
   xGap: 0.25
   layers: 10
+<<<<<<< HEAD
 --- !u!1 &293749040
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +467,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+=======
+>>>>>>> parent of 3d1130b (Merge branch 'main' of https://github.com/rustedCal/Jenga-demolition)
 --- !u!1 &1087518165
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +580,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1876004623
 PrefabInstance:
@@ -587,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2018799441440170511, guid: 21b1f030e51013f45987e1be965aac29, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2018799441440170511, guid: 21b1f030e51013f45987e1be965aac29, type: 3}
       propertyPath: m_LocalScale.y
@@ -726,5 +738,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

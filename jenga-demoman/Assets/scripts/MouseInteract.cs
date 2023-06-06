@@ -11,6 +11,7 @@ public class MouseInteract : MonoBehaviour
     Vector3 InitMousePos;
     void Update()
     {
+<<<<<<< HEAD
         mousePos = Input.mousePosition;//position of mouse on screen
         Ray ray = Camera.main.ScreenPointToRay(mousePos);//raycast of where the funnymouse cursor is
         if (Input.GetKey(KeyCode.Mouse0) && lastPiece != null)//if the mouse is down && lastpeice isnt null, move stored gameobject
@@ -50,6 +51,15 @@ public class MouseInteract : MonoBehaviour
         else if (Physics.Raycast(ray, out RaycastHit hitData, 100000, layer))//else, cast a raycast that stores the most recent hit gameobject's transform
         {
             worldPos = hitData.point;//for sphere indicator, change later
+=======
+        mousePos = Input.mousePosition;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+
+        if (Physics.Raycast(ray, out RaycastHit hitData, 1000, layer))
+        {
+            Debug.Log("hitting a block!!!");
+            worldPos = hitData.point;
+>>>>>>> parent of 3d1130b (Merge branch 'main' of https://github.com/rustedCal/Jenga-demolition)
         }
 
         transform.position = worldPos;//for sphere indicator
