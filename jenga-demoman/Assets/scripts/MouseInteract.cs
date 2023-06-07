@@ -12,6 +12,7 @@ public class MouseInteract : MonoBehaviour
     Vector3 InitMousePos;
     Vector3 InitPiecePos;
     bool canCollide = true;
+    bool workdamit;
     Vector3 temp;
     Vector3 temp2;
     float FB = 0.0f;
@@ -43,9 +44,12 @@ public class MouseInteract : MonoBehaviour
                 Debug.Log("sphere on front");
                 if (moveNumb > moveForce || moveNumb < -moveForce)
                 {
-                    //the pieces need to move relitive to the camera
-                    lastPiece.transform.position = lastPiece.transform.forward * (moveNumb * moveForce) + InitPiecePos;
-                    Debug.Log(lastPiece.transform.forward + ", " + moveNumb * moveForce + ", " + (lastPiece.transform.forward * (moveNumb * moveForce) + InitPiecePos));
+                    //the pieces need to move relitive to the camera, use an if statement
+                    if(lastPiece.tag == "piece")//becasue the rotated piece's forward vector arent the same, taging them is the best way to dirientiate
+                        lastPiece.transform.position = lastPiece.transform.forward * (moveNumb * moveForce) + InitPiecePos;
+                    else
+                        lastPiece.transform.position = -lastPiece.transform.forward * (moveNumb * moveForce) + InitPiecePos;
+                    Debug.Log(lastPiece.transform.forward + ", " + moveNumb * moveForce + ", " + (lastPiece.transform.forward * (moveNumb * moveForce) + InitPiecePos) + ", " + workdamit);
                 }
             }
             else if (FB <= 0.49f && LR <= 1.6f && LR >= -1.6f)

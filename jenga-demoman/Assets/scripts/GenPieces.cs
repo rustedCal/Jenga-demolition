@@ -27,6 +27,9 @@ public class GenPieces : MonoBehaviour
                 GameObject peice1 = Instantiate(devPiece, new Vector3(0.0f, y, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
                 GameObject peice2 = Instantiate(devPiece, new Vector3(xGap + 1, y, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
                 GameObject peice3 = Instantiate(devPiece, new Vector3(-(xGap + 1), y, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+                peice1.tag = "pieceRot";
+                peice2.tag = "pieceRot";
+                peice3.tag = "pieceRot";
                 peice2.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice2.transform.rotation.w);
                 peice3.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice3.transform.rotation.w);
                 peice1.name += i;

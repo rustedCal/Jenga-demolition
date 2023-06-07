@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 572370592}
   - component: {fileID: 572370591}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8
-  moveForce: 0.25
+  moveForce: 0.025
 --- !u!135 &572370592
 SphereCollider:
   m_ObjectHideFlags: 0
