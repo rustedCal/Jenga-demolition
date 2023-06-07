@@ -462,6 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b006ddb9d5a7d704b902c3004da716af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camRot: {fileID: 352855870}
   mousePos: {x: 0, y: 0, z: 0}
   worldPos: {x: 0, y: 0, z: 0}
   layer:
