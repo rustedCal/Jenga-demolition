@@ -677,6 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFail: 0
   blockCount: 0
+  triggerPlace: 0
 --- !u!1 &806470092
 GameObject:
   m_ObjectHideFlags: 0

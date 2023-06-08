@@ -76,8 +76,7 @@ public class MouseInteract : MonoBehaviour
                 Debug.Log("sphere on back");
                 if (moveNumb > moveForce || moveNumb < -moveForce)
                 {
-                    if (moveNumb > moveForce || moveNumb < -moveForce)
-                    {
+                    
                         if (camRot.transform.rotation.eulerAngles.y != 180.0f)//dirty fix for the camera rotation problem, i had to ut the cam into a fixed position for this
                         {//could re-ad the smooth rotation by haviung > and < things, buit this good 4 now. Need to make the placem,ent stuff
                             if (lastPiece.tag == "piece")//SO, this is a dirty fix, and wonr work when the camera rotates
@@ -92,7 +91,7 @@ public class MouseInteract : MonoBehaviour
                             else
                                 lastPiece.transform.position = lastPiece.transform.forward * (moveNumb * moveForce) + InitPiecePos;
                         }
-                    }
+                    
                     Debug.Log(lastPiece.transform.forward + ", " + ", " + camRot.transform.rotation.eulerAngles.y + ", " + (camRot.transform.rotation.eulerAngles.y != 180));
                 }
             }
