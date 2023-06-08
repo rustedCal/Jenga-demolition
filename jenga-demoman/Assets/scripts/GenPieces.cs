@@ -11,7 +11,8 @@ public class GenPieces : MonoBehaviour
     public float yHeight = 0.8f;
     public float xGap = 0.25f;
     public int layers = 10;
-
+    public bool isRotated = false;
+    public bool getY = false;//for the placeblock script, so that it gets the correct y
     void Start()
     {
         genPieces();
@@ -20,7 +21,7 @@ public class GenPieces : MonoBehaviour
     {
         Debug.Log("staring genoration");
         y = startY;
-        bool isRotated = false;
+        
         for (int i = 0; i < layers; i++)
         {
             if (isRotated)
@@ -31,8 +32,6 @@ public class GenPieces : MonoBehaviour
                 peice1.tag = "pieceRot";
                 peice2.tag = "pieceRot";
                 peice3.tag = "pieceRot";
-                peice2.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice2.transform.rotation.w);
-                peice3.transform.rotation.Set(0.0f, 90.0f, 0.0f, peice3.transform.rotation.w);
                 peice1.name += i;
                 peice2.name += i + 1;
                 peice3.name += i + 2;
@@ -49,5 +48,6 @@ public class GenPieces : MonoBehaviour
             isRotated = !isRotated;
             y += yHeight + yGap;
         }
+        getY = true;
     }
 }

@@ -19,6 +19,10 @@ public class MouseInteract : MonoBehaviour
     Vector3 forwardRot;
     float FB = 0.0f;
     float LR = 0.0f;
+
+    //Audiosource and clips
+    public AudioSource audioSource;
+    public AudioClip pullOutNoise; 
     void Update()
     {
         mousePos = Input.mousePosition;//position of mouse on screen
@@ -34,6 +38,7 @@ public class MouseInteract : MonoBehaviour
             canCollide = false;
             if (Input.GetKeyDown(KeyCode.Mouse0))//store initial position of mousepos
             {
+                audioSource.PlayOneShot(pullOutNoise); //plays noise of grabbing out piece
                 InitMousePos = mousePos;//initial mouse position, sub from mouse pos to get movement along face vector
                 InitPiecePos = lastPiece.transform.position;
                 //--===piece math stuff :), run once for the face detection. we want the initiual piece, not current so that y here===--//
@@ -76,8 +81,7 @@ public class MouseInteract : MonoBehaviour
                 Debug.Log("sphere on back");
                 if (moveNumb > moveForce || moveNumb < -moveForce)
                 {
-                    if (moveNumb > moveForce || moveNumb < -moveForce)
-                    {
+                    
                         if (camRot.transform.rotation.eulerAngles.y != 180.0f)//dirty fix for the camera rotation problem, i had to ut the cam into a fixed position for this
                         {//could re-ad the smooth rotation by haviung > and < things, buit this good 4 now. Need to make the placem,ent stuff
                             if (lastPiece.tag == "piece")//SO, this is a dirty fix, and wonr work when the camera rotates
@@ -92,7 +96,7 @@ public class MouseInteract : MonoBehaviour
                             else
                                 lastPiece.transform.position = lastPiece.transform.forward * (moveNumb * moveForce) + InitPiecePos;
                         }
-                    }
+                    
                     Debug.Log(lastPiece.transform.forward + ", " + ", " + camRot.transform.rotation.eulerAngles.y + ", " + (camRot.transform.rotation.eulerAngles.y != 180));
                 }
             }

@@ -40,6 +40,7 @@ public class cameraMovement : MonoBehaviour
     }
     private void Update()
     {
+        Clouds.transform.position = gameObject.transform.position;
         float temp2 = gameObject.transform.rotation.eulerAngles.y;
         if (Input.GetKeyDown(rotL))//for left / right rotation
         {
