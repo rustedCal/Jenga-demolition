@@ -9,7 +9,8 @@ public class isLose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (blockCount > 1)
+            isFail = true;
     }
     //if a obj enters, add 1 to count. if obj exit, delet obj and sub 1 from count. if count  > 1, flag a fail bool
     private void OnTriggerEnter(Collider other)
