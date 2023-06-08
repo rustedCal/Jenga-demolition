@@ -558,8 +558,9 @@ GameObject:
   - component: {fileID: 762123805}
   - component: {fileID: 762123804}
   - component: {fileID: 762123808}
+  - component: {fileID: 762123809}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: Terrain/trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -635,7 +636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762123803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.1, y: -11.99, z: 3.7}
+  m_LocalPosition: {x: 6.1, y: -15.52, z: 3.7}
   m_LocalScale: {x: 217.06549, y: 23.781784, z: 196.56711}
   m_Children: []
   m_Father: {fileID: 0}
@@ -657,6 +658,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &762123809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762123803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44285f9c87601724e800c3068ab80164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFail: 0
+  blockCount: 0
 --- !u!1 &806470092
 GameObject:
   m_ObjectHideFlags: 0
