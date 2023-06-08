@@ -677,6 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFail: 0
   blockCount: 0
+  triggerPlace: 0
 --- !u!1 &806470092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,6 +1718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devPiece: {fileID: 8859630687052712725, guid: f3364c1e929dac6468f9219cf885a380, type: 3}
+  y: 0
   startY: 0.5
   yGap: 0.1
   yHeight: 0.8
