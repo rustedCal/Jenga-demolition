@@ -7,7 +7,9 @@ public class placeBlock : MonoBehaviour
     public GameObject devPiece;
     GameObject currentPiece;
     public GenPieces genSript;
+    public MouseInteract mouse;
     public isLose loseScript;
+    public bool placedBlock;//used to dissable mouseinteract(not done) nad to fully place block
     float yHeight;
     int blockPlaced = 1;
     bool rotated;
@@ -28,6 +30,22 @@ public class placeBlock : MonoBehaviour
         {
             place();
             loseScript.triggerPlace = false;
+        }
+        if (placedBlock)
+        {
+            Debug.Log("going into block place mode");
+            mouse.enabled = false;
+            //curentPiece movement
+            Rigidbody temp = currentPiece.GetComponent<Rigidbody>();
+            temp.useGravity = false;
+            //dropping the block
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("exiting block place mode");
+                temp.useGravity = true;
+                mouse.enabled = true;
+                placedBlock = false;
+            }
         }
     }
     void place()
@@ -51,5 +69,6 @@ public class placeBlock : MonoBehaviour
             currentPiece = peice;
         }
         blockPlaced++;
+        placedBlock = true;
     }
 }
