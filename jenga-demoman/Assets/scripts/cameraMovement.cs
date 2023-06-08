@@ -10,6 +10,14 @@ public class cameraMovement : MonoBehaviour
     public KeyCode rotR = KeyCode.D;
     public float speedY = 0.5f;
     public float rotSpeed = 0.5f;
+
+    //cloud stuff
+    public GameObject Clouds;
+    public float CloudRotSpeed;
+    public Vector3 rotationDirection = new Vector3();
+    public Vector3 inverseRotationDirection = new Vector3();
+    //end cloud stuff
+
     void FixedUpdate()
     {
         Vector3 temp = gameObject.transform.position;//a temporary vector3 used to get transform inputs to set later
@@ -18,10 +26,13 @@ public class cameraMovement : MonoBehaviour
         if (Input.GetKey(up))//for up / down movement
         {
             temp.y += speedY;
+            Clouds.transform.Rotate(CloudRotSpeed * rotationDirection * Time.deltaTime);
+            
         }
         else if(Input.GetKey(down) && gameObject.transform.position.y > 0)
         {
             temp.y -= speedY;
+            Clouds.transform.Rotate(CloudRotSpeed * inverseRotationDirection * Time.deltaTime);
         }
         
         gameObject.transform.position = temp;//sets camera position
