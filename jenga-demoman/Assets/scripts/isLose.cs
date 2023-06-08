@@ -23,7 +23,10 @@ public class isLose : MonoBehaviour
         blockCount--;
         Destroy(other.gameObject);
         if (!isFail)
+        {
             triggerPlace = true;
+            Debug.Log("triggering place bool");
+        }
     }
 
 }

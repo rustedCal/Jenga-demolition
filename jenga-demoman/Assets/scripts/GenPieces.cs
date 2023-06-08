@@ -12,6 +12,7 @@ public class GenPieces : MonoBehaviour
     public float xGap = 0.25f;
     public int layers = 10;
     public bool isRotated = false;
+    public bool getY = false;//for the placeblock script, so that it gets the correct y
     void Start()
     {
         genPieces();
@@ -47,5 +48,6 @@ public class GenPieces : MonoBehaviour
             isRotated = !isRotated;
             y += yHeight + yGap;
         }
+        getY = true;
     }
 }
