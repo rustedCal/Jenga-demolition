@@ -19,6 +19,10 @@ public class MouseInteract : MonoBehaviour
     Vector3 forwardRot;
     float FB = 0.0f;
     float LR = 0.0f;
+
+    //Audiosource and clips
+    public AudioSource audioSource;
+    public AudioClip pullOutNoise; 
     void Update()
     {
         mousePos = Input.mousePosition;//position of mouse on screen
@@ -34,6 +38,7 @@ public class MouseInteract : MonoBehaviour
             canCollide = false;
             if (Input.GetKeyDown(KeyCode.Mouse0))//store initial position of mousepos
             {
+                audioSource.PlayOneShot(pullOutNoise); //plays noise of grabbing out piece
                 InitMousePos = mousePos;//initial mouse position, sub from mouse pos to get movement along face vector
                 InitPiecePos = lastPiece.transform.position;
                 //--===piece math stuff :), run once for the face detection. we want the initiual piece, not current so that y here===--//
