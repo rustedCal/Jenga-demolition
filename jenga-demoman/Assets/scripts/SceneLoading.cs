@@ -19,7 +19,7 @@ public class SceneLoading : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("GameMail");
     }
 
     public void EndGame()
