@@ -5,6 +5,7 @@ using UnityEngine;
 public class GenPieces : MonoBehaviour
 {
     public GameObject devPiece;
+    public float y;
     public float startY = 0.5f;
     public float yGap = 0.1f;
     public float yHeight = 0.8f;
@@ -18,7 +19,7 @@ public class GenPieces : MonoBehaviour
     public void genPieces()
     {
         Debug.Log("staring genoration");
-        float y = startY;
+        y = startY;
         bool isRotated = false;
         for (int i = 0; i < layers; i++)
         {
