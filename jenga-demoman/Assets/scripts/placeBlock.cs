@@ -10,12 +10,14 @@ public class placeBlock : MonoBehaviour
     public MouseInteract mouse;
     public isLose loseScript;
     public float moveForce = 0.25f;
+    public float bounds;
     public bool placedBlock;//used to dissable mouseinteract(not done) nad to fully place block
     float yHeight;
     int blockPlaced = 1;
     bool rotated;
     bool getMousePos = true;
     Vector3 lastMousePos;
+    Vector3 startPiecePos;
     //get the starting y height + the y gap & height
     void Start()
     {
@@ -36,25 +38,46 @@ public class placeBlock : MonoBehaviour
         }
         if (placedBlock)
         {
-            Debug.Log("going into block place mode");
+            //Debug.Log("going into block place mode");
             mouse.enabled = false;
             //curentPiece movement
             Rigidbody temp = currentPiece.GetComponent<Rigidbody>();
             temp.useGravity = false;
-            if (temp)
+            if (getMousePos)
             {
+                Debug.Log("getting moouse pos");
                 lastMousePos = Input.mousePosition;
                 getMousePos = false;
+                startPiecePos = currentPiece.transform.position;
             }
-            currentPiece.transform.position = Input.mousePosition - lastMousePos * moveForce;
+            float moveNumb = (Input.mousePosition.x - lastMousePos.x) + (Input.mousePosition.y - lastMousePos.y) * 0.1f;
+            Debug.Log(moveNumb);
+            if(currentPiece.transform.forward.x > 0)
+            {
+                Debug.Log("moveing along X");
+                Vector3 tempPos = currentPiece.transform.position;//tempPos is so that it dont get stuck when its out of bounds
+                tempPos = currentPiece.transform.forward * (moveNumb * moveForce) + startPiecePos;
+                if (tempPos.x < bounds && tempPos.x > -bounds)//checking to see if it aint ouda bounds >:(
+                    currentPiece.transform.position = tempPos;
+            }
+            else
+            {
+                Debug.Log("moving alonog Z");
+                Vector3 tempPos = currentPiece.transform.position;//tempPos is so that it dont get stuck when its out of bounds
+                tempPos = currentPiece.transform.forward * (moveNumb * moveForce) + startPiecePos;
+                if (tempPos.z < bounds && tempPos.z > -bounds)//checking to see if it aint ouda bounds >:(
+                    currentPiece.transform.position = tempPos;
+            }
+            
             //dropping the block
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 Debug.Log("exiting block place mode");
                 temp.useGravity = true;
-                mouse.enabled = true;
+                
                 placedBlock = false;
                 getMousePos = true;
+                mouse.enabled = true;
             }
         }
     }

@@ -2230,7 +2230,8 @@ MonoBehaviour:
   genSript: {fileID: 1910417027601201112}
   mouse: {fileID: 572370591}
   loseScript: {fileID: 762123809}
-  moveForce: 0.25
+  moveForce: 0.025
+  bounds: 2.5
   placedBlock: 0
 --- !u!4 &1280949358
 Transform:
