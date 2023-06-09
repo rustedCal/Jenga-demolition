@@ -16,7 +16,10 @@ public class SceneLoading : MonoBehaviour
     {
 
     }
-
+    public void loadScene(string input)
+    {
+        SceneManager.LoadScene(input);
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("GameMail");
