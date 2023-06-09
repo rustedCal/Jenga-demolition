@@ -9,10 +9,13 @@ public class placeBlock : MonoBehaviour
     public GenPieces genSript;
     public MouseInteract mouse;
     public isLose loseScript;
+    public float moveForce = 0.25f;
     public bool placedBlock;//used to dissable mouseinteract(not done) nad to fully place block
     float yHeight;
     int blockPlaced = 1;
     bool rotated;
+    bool getMousePos = true;
+    Vector3 lastMousePos;
     //get the starting y height + the y gap & height
     void Start()
     {
@@ -38,6 +41,12 @@ public class placeBlock : MonoBehaviour
             //curentPiece movement
             Rigidbody temp = currentPiece.GetComponent<Rigidbody>();
             temp.useGravity = false;
+            if (temp)
+            {
+                lastMousePos = Input.mousePosition;
+                getMousePos = false;
+            }
+            currentPiece.transform.position = Input.mousePosition - lastMousePos * moveForce;
             //dropping the block
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -45,6 +54,7 @@ public class placeBlock : MonoBehaviour
                 temp.useGravity = true;
                 mouse.enabled = true;
                 placedBlock = false;
+                getMousePos = true;
             }
         }
     }

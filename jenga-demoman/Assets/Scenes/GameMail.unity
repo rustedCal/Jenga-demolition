@@ -2228,7 +2228,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devPiece: {fileID: 8859630687052712725, guid: f3364c1e929dac6468f9219cf885a380, type: 3}
   genSript: {fileID: 1910417027601201112}
+  mouse: {fileID: 572370591}
   loseScript: {fileID: 762123809}
+  moveForce: 0.25
+  placedBlock: 0
 --- !u!4 &1280949358
 Transform:
   m_ObjectHideFlags: 0
